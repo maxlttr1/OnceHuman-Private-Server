@@ -24,18 +24,4 @@ RUN curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.t
 USER oncehuman
 RUN /opt/steamcmd/steamcmd.sh +login anonymous +force_install_dir /home/oncehuman/server +app_update 2139460 validate +quit
 
-RUN cat > /home/oncehuman/server/OnceHuman/Saved/Config/LinuxServer/GameUserSettings.ini <<'EOF'
-[/Script/OnceHuman.GameUserSettings]
-ServerName=My Once Human Server
-MaxPlayers=16
-ServerPassword=yourpassword_here
-AdminPassword=youradminpassword_here
-PvEEnabled=True
-DayLength=60
-NightLength=30
-XPMultiplier=1.0
-ResourceMultiplier=1.0
-DropMultiplier=1.0
-EOF
-
 CMD ["/home/oncehuman/server/OnceHumanServer.sh", "-log", "-port=27015"]
