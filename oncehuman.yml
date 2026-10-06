@@ -1,0 +1,12 @@
+services:
+  oncehuman:
+    build:
+      context: .
+    ports:
+      - "27015:27015/tcp"
+      - "27015:27015/udp"
+      - "27016:27016/tcp"
+      - "27016:27016/udp"
+    volumes:
+      - ./OnceHumanSave:/home/oncehuman/server/OnceHuman/Saved/
+    restart: unless-stopped
